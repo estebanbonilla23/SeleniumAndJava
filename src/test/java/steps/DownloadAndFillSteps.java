@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import pages.CustomSurveyPage;
 import tests.BaseTest;
 
+import java.io.IOException;
+
+import static utils.CsvModifierUtils.updateNicknameAndUsage;
 import static utils.FileUtils.deleteFileIfExists;
 
 public class DownloadAndFillSteps extends BaseTest {
@@ -27,6 +30,7 @@ public class DownloadAndFillSteps extends BaseTest {
         customSurveyPage.waitForLoaderToDisappear();
         customSurveyPage.clickGetTemplateButton();
         customSurveyPage.waitForLoaderToDisappear();
+        updateNicknameAndUsage(filePath);
         customSurveyPage.uploadFile(filePath);
         customSurveyPage.waitForLoaderToDisappear();
         customSurveyPage.clickPreviewButton();

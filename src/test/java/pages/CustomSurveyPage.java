@@ -38,9 +38,10 @@ public class CustomSurveyPage {
         wait.until(ExpectedConditions.elementToBeClickable(reviewButton)).click();
     }
 
-    public void clickSectionSurvey(String option) {
-
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(surveySection, option)))).click();
+    public void clickSectionSurvey(String option) throws InterruptedException {
+        waitForAction(() -> {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(surveySection, option)))).click();
+        });
     }
 
     public void clickMassiveActions() {
@@ -82,8 +83,10 @@ public class CustomSurveyPage {
         });
     }
 
-    public void waitForLoaderToDisappear() {
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+    public void waitForLoaderToDisappear() throws InterruptedException {
+        waitForAction(() -> {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+        });
     }
 
     public void waitForWarningsAreNotPresent() {

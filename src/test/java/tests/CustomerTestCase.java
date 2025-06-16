@@ -5,13 +5,15 @@ import org.testng.annotations.Test;
 import pages.CustomSurveyPage;
 import pages.HomePage;
 
+import java.io.IOException;
+
 import static data.AdminData.PATH;
 import static data.CustomerData.*;
 import static steps.DownloadAndFillSteps.downloadAndFillSteps;
 import static steps.LoginSteps.loginGP;
 
 
-public class CustomerTestCase extends BaseTest{
+public class CustomerTestCase extends BaseTest {
 
     HomePage homePage;
     CustomSurveyPage customSurveyPage;
@@ -30,21 +32,21 @@ public class CustomerTestCase extends BaseTest{
     }
 
     @Test
-    public void downloadAndFillForEnvironmentFugitiveAndProcessedEmissions() throws InterruptedException {
+    public void downloadAndFillForEnvironmentFugitiveAndProcessedEmissions() throws InterruptedException, IOException {
 
         String option = "Fugitive and Processed Emissions";
         downloadAndFillForEnvironmentSection(option);
     }
 
     @Test
-    public void downloadAndFillForEnvironmentUtilities() throws InterruptedException {
+    public void downloadAndFillForEnvironmentUtilities() throws InterruptedException, IOException {
 
         String option = "Utilities";
         downloadAndFillForEnvironmentSection(option);
     }
 
     @Test
-    public void downloadAndFillForEnvironmentDownstreamLeasedAssets() throws InterruptedException {
+    public void downloadAndFillForEnvironmentDownstreamLeasedAssets() throws InterruptedException, IOException {
 
         String option = "Downstream leased assets";
         downloadAndFillForEnvironmentSection(option);
