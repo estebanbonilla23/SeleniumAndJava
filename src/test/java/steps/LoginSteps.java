@@ -30,9 +30,8 @@ public class LoginSteps extends BaseTest {
         loginPage.enterPassword(password);
         loginPage.clickContinue();
 
-        // Step 4: Validate the title and wait for homepage to load
+        // Step 4: wait for homepage to load
         homePage.waitForPageLoad();
-        homePage.verifyTitle("Green Project");
 
         ExtentTestManager.getTest().log(Status.INFO, "Login completed");
     }

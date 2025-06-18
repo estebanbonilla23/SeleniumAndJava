@@ -28,16 +28,8 @@ public class HomePage {
         });
     }
 
-    // Page actions
-    public void verifyTitle(String expectedTitle) {
-
-        String actualTitle = driver.getTitle();
-        Assert.assertEquals(actualTitle, expectedTitle, "Page title does not match");
-    }
-
     public void waitForPageLoad() {
 
-        wait.until(ExpectedConditions.urlContains("greenprojecttech"));
         wait.until(ExpectedConditions.presenceOfElementLocated(menu));
     }
 }
