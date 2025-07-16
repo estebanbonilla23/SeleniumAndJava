@@ -28,8 +28,9 @@ public class HomePage {
         });
     }
 
-    public void waitForPageLoad() {
-
-        wait.until(ExpectedConditions.presenceOfElementLocated(menu));
+    public void waitForPageLoad() throws InterruptedException {
+        waitForAction(() -> {
+            wait.until(ExpectedConditions.presenceOfElementLocated(menu));
+        });
     }
 }

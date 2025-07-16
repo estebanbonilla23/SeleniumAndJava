@@ -12,7 +12,7 @@ public class LoginSteps extends BaseTest {
     static LoginPage loginPage;
     static HomePage homePage;
 
-    public static void loginGP(WebDriver driver, String url, String user, String password) {
+    public static void loginGP(WebDriver driver, String url, String user, String password) throws InterruptedException {
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);

@@ -66,6 +66,25 @@ public class CustomerTestCase extends BaseTest {
         downloadAndFillForEnvironmentSection(option);
     }
 
+    @Test
+    public void addWaste() throws InterruptedException {
+
+        loginGP(driver, URL, EMAIL, PASSWORD);
+        customSurveyPage.waitForLoaderToDisappear();
+        homePage.clickMenuButton("Environmental");
+        customSurveyPage.clickReviewButton();
+        customSurveyPage = new CustomSurveyPage(driver);
+        customSurveyPage.clickSectionSurvey("Waste");
+        customSurveyPage.waitForLoaderToDisappear();
+        customSurveyPage.addAnotherResource();
+        customSurveyPage.searchFacility("a");
+        customSurveyPage.clickOnFacility();
+        customSurveyPage.selectResource();
+        customSurveyPage.selectDataSource();
+        customSurveyPage.addNickName("aut_waste");
+        customSurveyPage.clickAcceptButton();
+    }
+
     public void downloadAndFillForEnvironmentSection(String option) throws InterruptedException {
 
         loginGP(driver, URL, EMAIL, PASSWORD);

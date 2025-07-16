@@ -36,9 +36,10 @@ public class CustomerPage {
         wait.until(ExpectedConditions.elementToBeClickable(searchIcon)).click();
     }
 
-    public void clickOnFirstCustomer() {
-
-        wait.until(ExpectedConditions.elementToBeClickable(companyDetails)).click();
+    public void clickOnFirstCustomer() throws InterruptedException {
+        waitForAction(() -> {
+            wait.until(ExpectedConditions.elementToBeClickable(companyDetails)).click();
+        });
     }
 
     public void clickOnEnvironmental() throws InterruptedException {

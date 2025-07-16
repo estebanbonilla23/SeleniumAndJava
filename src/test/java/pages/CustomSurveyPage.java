@@ -18,7 +18,16 @@ public class CustomSurveyPage {
     private String surveySection = "//span[contains(text(),'%s')]";
     private By massiveActionsBtn = By.id("rc_select_9");
     private By massiveActionsAdminBtn = By.id("rc_select_6");
+    private By facilityInput = By.id("rc_select_15");
+    private By facilityOption = By.xpath("//div[@class = 'ant-select-item-option-content']");
+    private By resourceDetailInput = By.id("fuel_detail");
+    private By dataSourceInput = By.id("data_source");
+    private By nicknameInput = By.id("nickname");
+    private By directEntryOption = By.xpath("//div[contains(text(), 'Direct Entry')]");
+    private By resouceParent = By.xpath("//li[@role='menuitemcheckbox']");
+    private By resouceChild = By.xpath("//li[@class='ant-cascader-menu-item']//div[@class='ant-cascader-menu-item-content']");
     private By downloadAndFillButton = By.xpath("//span[contains(text(), 'Download')]");
+    private By addAnotherButton = By.xpath("//span[contains(text(), 'Add another')]");
     private By getTemplateButton = By.xpath("//span[@class = 'ant-btn-icon']/span[contains(@class,'anticon-download')]");
     private By chooseFileInput = By.xpath("//input[@type = 'file']");
     private By previewButton = By.xpath("//span[contains(text(),'Preview Data')]/..");
@@ -95,4 +104,47 @@ public class CustomSurveyPage {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(collapseArrow));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(warningIcon));
     }
+
+    public void addAnotherResource() {
+
+        wait.until(ExpectedConditions.elementToBeClickable(addAnotherButton)).click();
+    }
+
+    public void searchFacility(String keyWord) throws InterruptedException {
+        waitForAction(() -> {
+            wait.until(ExpectedConditions.elementToBeClickable(facilityInput)).click();
+            wait.until(ExpectedConditions.elementToBeClickable(facilityInput)).sendKeys(keyWord);
+        });
+    }
+
+    public void clickOnFacility() throws InterruptedException {
+        waitForAction(() -> {
+            wait.until(ExpectedConditions.elementToBeClickable(facilityOption)).click();
+        });
+    }
+
+    public void selectResource() throws InterruptedException {
+
+        wait.until(ExpectedConditions.elementToBeClickable(resourceDetailInput)).click();
+        waitForAction(() -> {
+            wait.until(ExpectedConditions.elementToBeClickable(resouceParent)).click();
+        });
+        waitForAction(() -> {
+            wait.until(ExpectedConditions.elementToBeClickable(resouceChild)).click();
+        });
+    }
+
+    public void selectDataSource() throws InterruptedException {
+
+        waitForAction(() -> {
+            wait.until(ExpectedConditions.elementToBeClickable(dataSourceInput)).click();
+            wait.until(ExpectedConditions.elementToBeClickable(directEntryOption)).click();
+        });
+    }
+
+    public void addNickName(String nickname) {
+        wait.until(ExpectedConditions.elementToBeClickable(nicknameInput)).sendKeys(nickname);
+    }
+
+
 }
